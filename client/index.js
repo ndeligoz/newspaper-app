@@ -1,0 +1,1 @@
+import '/imports/themes/default/index.js'
