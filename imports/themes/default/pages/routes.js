@@ -1,8 +1,8 @@
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 
 FlowRouter.route('/', {
-    name: 'pages.home',
+    name: 'pages.news',
     action(params, queryParams) {
-        this.render('LayoutDefault', { page: 'pagesHome' });
+        this.render('LayoutDefault', { page: 'pagesNews' });
     }
 });

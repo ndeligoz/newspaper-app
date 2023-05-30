@@ -24,10 +24,21 @@ body {
 
 
 /* grid sistemi */
+.container {
+    width: 100%;
+    max-width: 1366px;
+    margin: auto;
+
+
+}
+
+
 
 .row {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
 
 }
 
@@ -114,4 +125,19 @@ body {
 
 .justify-content-center {
     justify-content: center;
+}
+
+
+
+// button
+
+.btn-outline-danger {
+    /* btn-outline-danger stilini uygula */
+    color: #dc3545;
+
+    background-image: none;
+    border-color: #dc3545;
+    width: 220px;
+    height: 60px;
+    font-family: 'Poppins';
 }
