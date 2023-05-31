@@ -1,9 +1,17 @@
+@import '{}/client/configs/_variables.scss';
 @import './components/styles.scss';
+
+$primary: #C31815;
+$secondary: #0E1E32;
 
 body {
 
-    font-family: sans-serif;
+    font-family: $font-family-base;
     background-color: #E5E5E5;
+}
+
+* {
+    font-family: $font-family-base;
 }
 
 /* navbar */
@@ -27,8 +35,9 @@ body {
 .container {
     width: 100%;
     max-width: 1366px;
+    padding-right: 15px;
+    padding-left: 15px;
     margin: auto;
-
 
 }
 
@@ -37,21 +46,23 @@ body {
 .row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    margin: auto;
-
+    margin-right: -15px;
+    margin-left: -15px;
 }
 
 .col-1 {
 
     max-width: 8.3333333333%;
+    padding-right: 15px;
+    padding-left: 15px;
 
 }
 
 .col-2 {
 
     max-width: 16.6666666667%;
-
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 .col-3 {
@@ -64,54 +75,72 @@ body {
 .col-4 {
 
     max-width: 33.3333333333%;
+    padding-right: 15px;
+    padding-left: 15px;
 
 }
 
 .col-5 {
 
     max-width: 41.6666666667%;
+    padding-right: 15px;
+    padding-left: 15px;
 
 }
 
 .col-6 {
 
     max-width: 50%;
+    padding-right: 15px;
+    padding-left: 15px;
 
 }
 
 .col-7 {
 
     max-width: 58.3333333333%;
+    padding-right: 15px;
+    padding-left: 15px;
 
 }
 
 .col-8 {
 
     max-width: 66.6666666667%;
+    padding-right: 15px;
+    padding-left: 15px;
 
 }
 
 .col-9 {
 
     max-width: 75%;
+    padding-right: 15px;
+    padding-left: 15px;
 
 }
 
 .col-10 {
 
     max-width: 83.3333333333%;
+    padding-right: 15px;
+    padding-left: 15px;
 
 }
 
 .col-11 {
 
     max-width: 91.6666666667%;
+    padding-right: 15px;
+    padding-left: 15px;
 
 }
 
 .col-12 {
 
     max-width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
 
 }
 
@@ -133,10 +162,10 @@ body {
 
 .btn-outline-danger {
     /* btn-outline-danger stilini uygula */
-    color: #dc3545;
+    color: $primary;
 
     background-image: none;
-    border-color: #dc3545;
+    border-color: $primary;
     width: 220px;
     height: 60px;
     font-family: 'Poppins';
