@@ -1,4 +1,4 @@
-.components-section {
+.components-trending {
     margin-top: 2rem;
 
     &-card {
@@ -11,6 +11,11 @@
             &__text {
 
                 color: red;
+            }
+
+            &__icon {
+                display: flex;
+                column-gap: 20px;
             }
         }
 

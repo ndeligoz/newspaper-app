@@ -135,18 +135,6 @@ body {
 
 }
 
-.d-flex {
-    display: flex;
-}
-
-.align-items-center {
-    align-items: center;
-}
-
-.justify-content-center {
-    justify-content: center;
-}
-
 
 
 // button
@@ -160,4 +148,16 @@ body {
     width: 220px;
     height: 60px;
     font-family: 'Poppins';
+}
+
+.btn-danger {
+    /* btn-outline-danger stilini uygula */
+    color: #ffff;
+
+    border-radius: 5px;
+    background-color: #C31815;
+    width: 120px;
+    height: 60px;
+    font-family: 'Poppins';
+    font-size: 14px;
 }

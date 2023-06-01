@@ -17,6 +17,11 @@
             padding-left: 2px;
             margin-top: 0.5rem;
 
+            & a {
+                text-decoration: none;
+                color: black;
+            }
+
         }
 
         & li {
@@ -86,78 +91,88 @@
             font-size: 15px;
         }
     }
+}
 
-    .components-news {
-        &_col {
-            width: 100%;
-            margin-top: 2.5rem;
+.components-news {
+    &_col {
+        width: 100%;
+        margin-top: 2.5rem;
+    }
+
+    &-live {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-content: flex-end;
+        flex-wrap: wrap;
+        padding-left: 2rem;
+
+        &__img {
+            margin-top: 2rem;
         }
 
-        &-live {
+        &__icon {
+            color: red;
+        }
 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-content: flex-end;
-            flex-wrap: wrap;
+        &_title {
+            font-family: 'Poppins';
+            font-weight: 600;
+            font-size: 18px;
+            margin-top: 1rem;
 
-            &__img {
+            &_location {
+
+                font-weight: 700;
+                font-size: 18px;
                 margin-top: 2rem;
             }
-
-            &_title {
-                font-family: 'Poppins';
-                font-weight: 600;
-                font-size: 18px;
-
-                &_location {
-
-                    font-weight: 700;
-                    font-size: 18px;
-                }
-            }
-
-            &-card {
-                height: 216px;
-                width: 100%;
-                background-color: #ffff;
-                display: flex;
-                align-content: space-around;
-                justify-content: center;
-                flex-wrap: wrap;
-                padding: 0.5rem;
-                align-items: flex-start;
-
-
-                &__btn {
-                    margin-top: 0.5rem;
-
-                    height: 40px;
-                    width: 40%;
-                    text-align: center;
-                    background-color: #C31815;
-                    color: #ffff;
-
-                }
-
-                &__input {
-
-                    margin: auto;
-                    height: 60px;
-                    width: 90%;
-                    text-align: center;
-                }
-            }
-
         }
 
+        &-card {
+
+
+
+            width: 100%;
+            background-color: #ffff;
+            display: flex;
+            align-content: space-around;
+
+            flex-wrap: wrap;
+            padding: 0.5rem;
+            align-items: flex-start;
+            margin-top: 2rem;
+            grid-row-gap: 80px;
+
+
+            &__btn {
+                margin-top: 0.5rem;
+
+                margin-left: 1rem;
+                text-align: center;
+
+
+            }
+
+            &__input {
+
+                margin: auto;
+                height: 60px;
+                width: 90%;
+                text-align: center;
+            }
+        }
 
     }
 
 
-
-
 }
+
+
+
+
+
 
 
 .components-editor {
@@ -181,13 +196,21 @@
             &__text {
                 font-weight: 400;
                 font-size: 14px;
+                display: -webkit-box;
+
+                -webkit-line-clamp: 5;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
             }
         }
     }
 
     &-image {
         object-fit: cover;
-        width: 40%;
+        width: 272px;
+        height: 172px;
+        object-position: top;
+        flex-shrink: 0;
 
     }
 }
