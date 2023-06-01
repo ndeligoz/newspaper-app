@@ -1,66 +1,21 @@
-.pagesNews {
-    .news-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+.components-news {
+    &-col {
+        margin-bottom: 1rem;
     }
 
-
-    .card {
-        width: 438px;
-        height: 520px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-top: 25px;
-        background-color: #ffff;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .card-body {
-        padding: 10px;
-
-    }
-
-    .card-title {
-        font-family: 'IBM Plex Serif';
-        font-weight: 600;
-        font-size: 18px;
-        text-align: center;
-    }
-
-    .card-body p {
-        margin-bottom: 10px;
-    }
-
-    .card-img {
-        width: 438px;
-        height: 246px;
-    }
-
-    .card-footer {
-        display: flex;
-        justify-content: space-evenly;
-        align-content: stretch;
-        margin-bottom: 15px;
-
-        border-top: 10px;
-        padding-top: 10px;
-        border-top: 1px solid;
-    }
-
-    .news-bar {
+    &-bar {
         margin-top: 25px;
         height: 54px;
         display: flex;
         justify-content: space-between;
         background-color: #ffff;
 
-        & ul {
+
+        &__ul {
             list-style-type: none;
             display: flex;
             padding-left: 2px;
+            margin-top: 0.5rem;
 
         }
 
@@ -69,44 +24,170 @@
             font-weight: 600;
             font-size: 18px;
             font-family: 'Poppins';
+
         }
     }
 
-    & .btn-wiew {
-        margin-top: 25px;
-        text-align: center;
-    }
 
-    & .card-text {
-        font-family: "Nunito Sans", sans-serif;
-        font-weight: 400;
-        font-size: 15px;
-        height: 10vh;
-    }
 
-    & .live {
-        margin-top: 25px;
-
-        p {
-            color: red;
-        }
-
-        h5 {
-            font-family: 'IBM Plex Serif';
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 27px;
-        }
-    }
-
-    .live-card {
-        width: 370px;
-        height: 216px;
+    &-card {
+        width: 100%;
+        height: 100%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin: 1rem 0;
         background-color: #ffff;
-
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
 
-        justify-content: center;
+        &-body {
+            padding: 1rem;
+        }
+
+        &__title {
+            font-family: 'IBM Plex Serif';
+            font-weight: 600;
+            font-size: 18px;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            padding: 0.5rem;
+        }
+
+        &__img {
+            width: 100%;
+            height: 246px;
+            object-fit: cover;
+
+        }
+
+        &-footer {
+            display: flex;
+            justify-content: space-evenly;
+            align-content: stretch;
+            margin-bottom: 15px;
+
+
+            padding-top: 0.5rem;
+            border-top: 1px solid;
+        }
+
+        &__btn {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        &__text {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            font-family: "Nunito Sans", sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+        }
+    }
+
+    .components-news {
+        &_col {
+            width: 100%;
+            margin-top: 2.5rem;
+        }
+
+        &-live {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-content: flex-end;
+            flex-wrap: wrap;
+
+            &__img {
+                margin-top: 2rem;
+            }
+
+            &_title {
+                font-family: 'Poppins';
+                font-weight: 600;
+                font-size: 18px;
+
+                &_location {
+
+                    font-weight: 700;
+                    font-size: 18px;
+                }
+            }
+
+            &-card {
+                height: 216px;
+                width: 100%;
+                background-color: #ffff;
+                display: flex;
+                align-content: space-around;
+                justify-content: center;
+                flex-wrap: wrap;
+                padding: 0.5rem;
+                align-items: flex-start;
+
+
+                &__btn {
+                    margin-top: 0.5rem;
+
+                    height: 40px;
+                    width: 40%;
+                    text-align: center;
+                    background-color: #C31815;
+                    color: #ffff;
+
+                }
+
+                &__input {
+
+                    margin: auto;
+                    height: 60px;
+                    width: 90%;
+                    text-align: center;
+                }
+            }
+
+        }
+
+
+    }
+
+
+
+
+}
+
+
+.components-editor {
+
+    &-title {
+        font-weight: 700;
+    }
+
+    &-card {
+        display: flex;
+        margin-top: 2rem;
+
+        &-body {
+            padding-left: 0.5rem;
+
+            &__title {
+                font-size: 16px;
+                font-weight: 700;
+            }
+
+            &__text {
+                font-weight: 400;
+                font-size: 14px;
+            }
+        }
+    }
+
+    &-image {
+        object-fit: cover;
+        width: 40%;
+
     }
 }

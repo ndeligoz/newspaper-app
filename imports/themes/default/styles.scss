@@ -1,5 +1,7 @@
 @import '{}/client/configs/_variables.scss';
 @import './components/styles.scss';
+@import './pages/home/style.scss';
+@import'./pages/news/style.scss';
 
 $primary: #C31815;
 $secondary: #0E1E32;
@@ -11,24 +13,13 @@ body {
 }
 
 * {
+    margin: 0;
+    padding: 0;
     font-family: $font-family-base;
+    box-sizing: border-box;
 }
 
-/* navbar */
-.navbar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
 
-}
-
-.nav-link {
-    display: block;
-
-    color: #007bff;
-    text-decoration: none;
-}
 
 
 /* grid sistemi */

@@ -9,7 +9,7 @@ import './style.scss'
 
 Template.pagesNews.onCreated(function () {
     this.newsData = new ReactiveVar([]);
-    this.news_Data = new ReactiveVar([]);
+    this.news_Editor = new ReactiveVar([]);
     fetch('https://api.collectapi.com/news/getNews?country=tr&tag=general', {
         headers: {
             'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ Template.pagesNews.onCreated(function () {
             const news = data.result.slice(0, 4);
             const news_data = data.result.slice(4, 6);
             this.newsData.set(news);
-            this.news_Data.set(news_data);
+            this.news_Editor.set(news_data);
         })
         .catch(error => {
             console.error('Veri çekme hatası:', error);
@@ -35,8 +35,8 @@ Template.pagesNews.helpers({
         return Template.instance().newsData.get();
 
     },
-    news_Data() {
-        return Template.instance().news_Data.get();
+    news_Editor() {
+        return Template.instance().news_Editor.get();
 
     }
 });

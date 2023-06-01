@@ -1,0 +1,69 @@
+.components-section {
+    margin-top: 2rem;
+
+    &-card {
+        padding-top: 20%;
+
+        &-navbar {
+            display: flex;
+            justify-content: space-between;
+
+            &__text {
+
+                color: red;
+            }
+        }
+
+        &-body {
+            &__title {
+                font-size: 32px;
+                font-weight: bold;
+            }
+
+            &__text {
+                font-size: 15px;
+            }
+        }
+
+        &-footer {
+            display: flex;
+            justify-content: start;
+            margin-top: 0.5rem;
+        }
+
+    }
+
+
+
+    &-image {
+        width: 100%;
+    }
+}
+
+.components-title {
+
+
+    &-content {
+        background-color: $primary;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+
+
+        &__box {
+            width: 157px;
+            height: 54px;
+            background-color: #ffff;
+            color: $primary ;
+
+
+            &__news {
+                margin: 1rem;
+            }
+        }
+
+    }
+
+}

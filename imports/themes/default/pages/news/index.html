@@ -2,34 +2,35 @@
 
 
 
-    <div class="pagesNews">
+
+    <div class="components-news">
         <div class="container">
 
             <div class=" row ">
 
                 <div class="col-8">
-                    <div class="news-bar ">
-                        <ul>
-                            <li>Latest Stories</li>
+                    <div class="components-news-bar ">
+                        <ul class="components-news-bar__ul">
+                            <li><a href="#">Latest Stories</a></li>
                             <li>Think</li>
                             <li>Healt</li>
                         </ul>
 
                         <i class="fa-thin fa-list"></i>
                     </div>
+
                     <div class="row ">
                         {{#each newsData}}
-                            <div class="col-6">
-                                <div class="card">
-                                    <img src="{{image}}" class="card-img" style="object-fit: cover;" alt="...">
-                                    <div class="card-body">
-                                        <a class="card-title" style="text-decoration: none; color: black;"
-                                            href="{{url}}">{{name}}</a>
-                                        <p class="card-text">{{description}}</p>
+                            <div class="col-6 components-news-col">
+                                <div class="components-news-card">
+                                    <img src="{{image}}" class="components-news-card__img">
+                                    <div class="components-news-card-body">
+                                        <a class="components-news-card__title" href="{{url}}">{{name}}</a>
+                                        <p class="components-news-card__text">{{description}}</p>
 
 
                                     </div>
-                                    <div class="card-footer">
+                                    <div class="components-news-card-footer">
                                         <i class=" fa-regular fa-heart"></i>
                                         <i class=" fa-solid fa-arrow-up-from-bracket"></i>
                                         <i class=" fa-regular fa-bookmark"></i>
@@ -40,70 +41,80 @@
                         {{/each}}
 
                     </div>
-                    <div class="btn-wiew">
+
+                    <div class="components-news-card__btn">
                         <button class="btn btn-outline-danger">WIEW MORE</button>
+                        <!-- buton özelleştir -->
                     </div>
 
                 </div>
-                <div class="col-4 live">
-                    <div>
-                        <p>Live <i class="fa-solid fa-record-vinyl"></i></p>
-                    </div>
+                <div class=" col-4 components-news_col">
+                    <div class="components-news-live">
+                        <div>
+                            <p>Live <i class="fa-solid fa-record-vinyl"></i></p>
+                        </div>
 
-                    <img src="img/image 48.png" style="width: 370px; height:218px; margin-top:30px ;" alt="">
-                    <h5 style="   font-family: 'IBM Plex Serif'; width: 90%;">Beloved Arizona coach loses battle with
-                        coronavirus</h5>
+                        <img class="components-news-live__img" src="img/image 48.png">
+                        <h5 class="components-news-live_title">
+                            Beloved Arizona coach loses battle
+                            with
+                            coronavirus</h5>
 
-                    <div>
-                        <h2>Location News</h2>
-                    </div>
-                    <div class="live-card">
-                        <input style="width: 330px;height: 60px; margin-left: 15px;" type="text"
-                            placeholder="Enter Your Location">
-                        <button
-                            style="width: 100px;height: 40px; background-color:#C31815;color: #ffff; margin-left: 15px; margin-top: 20px;">SUBMIT</button>
+                        <div class="components-news-live_title_location">
+                            <h2>Location News</h2>
+                        </div>
+                        <div class="components-news-live-card">
+                            <p>Get Location specific News</p>
+                            <input class="components-news-live-card__input" type="text"
+                                placeholder="Enter Your Location">
+                            <button class="components-news-live-card__btn">SUBMIT</button>
+                        </div>
                     </div>
                 </div>
+
+
+
 
             </div>
-            <!-- <div class="row container">
-            {{#each news_Data}}
-
-
-
-                <div class="col-6">
-                    <div class="row">
-
-                        <div class="col-4">
-                            <img src="{{image}} " style="height: 300px;" alt="">
-                        </div>
-
-                        <div class="col-8">
-                            <div class="d-flex align-items-center h-100">
-                                <div class="card">
-
-                                    <div class="card-body">
-                                        <h1 class="card-title">{{title}} </h1>
-                                        <p class="card-text">{{description}} </p>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            {{/each}}
-        </div> -->
 
         </div>
     </div>
 
+    <div class="components-editor">
+        <!--  section editors-pick -->
+        <div class="container">
+            <div class="components-editor-title">
+                <p>Editor’s Picks <i class="fa-solid fa-star-sharp"></i></p>
+            </div>
+            <div class="row">
+
+                {{#each news_Editor}}
+
+
+                    <div class="col-6">
+
+
+                        <div class="components-editor-card">
 
 
 
+                            <img class="components-editor-image" src="{{image}} " alt="">
+                            <div class="components-editor-card-body">
+                                <h5 class="components-editor-card-body__title">{{name}} </h5>
+                                <p class="components-editor-card-body__text">{{description}}</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                {{/each}}
+            </div>
+        </div>
+
+    </div>
 
 
 

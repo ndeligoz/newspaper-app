@@ -1,20 +1,21 @@
 .components-navbar {
   background-color: white;
   height: 80px;
-  width: 1920px;
+  width: 100%;
 
   & .navbar {
     margin: auto;
     background-color: #ffffff;
     padding: 14px;
-    text-align: center;
+
     width: 1366px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
   }
 
-  & .navbar-logo {
-    display: inline-block;
-
-  }
 
   & .navbar-list {
     display: flex;
@@ -26,10 +27,11 @@
   & .navbar-link {
     text-decoration: none;
     color: black;
-    padding: 2px;
     position: relative;
-    display: flex;
-    align-items: center;
+
+
+
+
     font-family: "Nunito Sans", sans-serif;
 
     &.red-point {
@@ -40,92 +42,32 @@
         width: 8px;
         border-radius: 9999px; // 50%
         background-color: red;
-        left: -10px;
-        // top: 50%;
-        // transform: translateY(-50%);
+
+        top: 50%;
+        right: 100%;
+
+        transform: translateY(-50%);
       }
     }
 
-
-  }
-
-
-
-}
-
-
-
-
-
-
-.components-section {
-  &.section-bar {
-    text-align: center;
-    width: 1366px;
-    margin: auto;
-    margin-top: 25px;
-  }
-
-  .card {
-
-
-    padding: 100px 155px 100px 90px;
-  }
-
-  .card-title {
-    text-align: left;
-    font-family: 'IBM Plex Serif';
-    font-size: 32px;
-  }
-
-  .card-text {
-    margin-top: 20px;
-    text-align: left;
-    font-family: 'Poppins';
-    font-size: 15px;
-  }
-
-  .d-flex {
-    display: flex;
-  }
-
-  .align-items-center {
-    align-items: center;
-  }
-
-  .h-100 {
-    height: 100%;
-  }
-
-  .card-footer {
-    font-size: 13px;
-    font-family: 'Poppins';
-    margin-top: 30px;
-  }
-
-  .card-navbar {
-    justify-content: space-between;
-    margin-bottom: -20px;
-
-    p {
-      font-family: 'Poppins';
-      font-weight: 600;
-      color: red;
-
+    .fa-solid,
+    .fa-regular {
+      float: right;
     }
 
-
   }
+
 
 
 }
 
+
+
+
+
+
+
 .components-title {
-  width: 1366px;
-  height: 80px;
-  background-color: #C31815;
-  margin: auto;
-  margin-top: 10px;
 
   .box {
     height: 54px;
