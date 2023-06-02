@@ -2,6 +2,7 @@
 @import './components/styles.scss';
 @import './pages/home/style.scss';
 @import'./pages/news/style.scss';
+@import './pages/detail/style.scss';
 
 $primary: #C31815;
 $secondary: #0E1E32;
@@ -32,6 +33,14 @@ body {
 
 }
 
+.container-pagesDetail {
+    width: 100%;
+    max-width: 1080px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: auto;
+    margin-top: 2rem;
+}
 
 
 .row {

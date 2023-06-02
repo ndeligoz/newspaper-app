@@ -7,9 +7,9 @@ import './style.scss'
 
 
 
-Template.pagesNews.onCreated(function () {
-    this.newsData = new ReactiveVar([]);
-    this.news_Editor = new ReactiveVar([]);
+Template.pagesDetail.onCreated(function () {
+    this.relatedTopics = new ReactiveVar([]);
+
     fetch('https://api.collectapi.com/news/getNews?country=tr&tag=general', {
         headers: {
             'Content-Type': 'application/json',
@@ -19,10 +19,10 @@ Template.pagesNews.onCreated(function () {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            const news = data.result.slice(0, 4)
-            const news_data = data.result.slice(4, 6);
-            this.newsData.set(news);
-            this.news_Editor.set(news_data);
+            const relatedTopics = data.result.slice(0, 5)
+
+            this.relatedTopics.set(relatedTopics);
+
 
 
         })
@@ -32,11 +32,9 @@ Template.pagesNews.onCreated(function () {
 });
 
 
-Template.pagesNews.helpers({
-    newsData(start, end) {
-        return Template.instance().newsData.get().slice(start, end);
+Template.pagesDetail.helpers({
+    relatedTopics() {
+        return Template.instance().relatedTopics.get().slice();
     },
-    news_Editor() {
-        return Template.instance().news_Editor.get();
-    }
+
 });

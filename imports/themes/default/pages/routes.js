@@ -6,3 +6,17 @@ FlowRouter.route('/', {
         this.render('LayoutDefault', { page: 'pagesNews' });
     }
 });
+
+FlowRouter.route('/politics', {
+    name: 'pages.politics',
+    action(params, queryParams) {
+        this.render('LayoutDefault', { page: 'pagesPolitics' });
+    }
+});
+
+FlowRouter.route('/new-detail', {
+    name: 'pages.detail',
+    action(params, queryParams) {
+        this.render('LayoutDefault', { page: 'pagesDetail' });
+    }
+});

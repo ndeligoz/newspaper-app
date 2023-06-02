@@ -1,8 +1,7 @@
 <template name="pagesNews">
 
 
-
-
+    {{>pagesHome}}
     <div class="components-news">
         <div class="container">
 
@@ -23,7 +22,9 @@
                         {{#each newsData}}
                             <div class="col-6 components-news-col">
                                 <div class="components-news-card">
-                                    <img src="{{image}}" class="components-news-card__img">
+                                    <a href="{{pathFor 'pages.detail'}}">
+                                        <img src="{{image}}" class="components-news-card__img">
+                                    </a>
                                     <div class="components-news-card-body">
                                         <a class="components-news-card__title" href="{{url}}">{{name}}</a>
                                         <p class="components-news-card__text">{{description}}</p>
@@ -88,7 +89,7 @@
             </div>
             <div class="row">
 
-                {{#each news_Editor}}
+                {{#each news_Editor }}
 
 
                     <div class="col-6">
