@@ -1,42 +1,92 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
+
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import './index.html'
 import './style.scss'
 
 
 
-
-
 Template.pagesNews.onCreated(function () {
-    this.newsData = new ReactiveVar([]);
-    this.news_Editor = new ReactiveVar([]);
-    fetch('https://api.collectapi.com/news/getNews?country=tr&tag=general', {
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'apikey 577q4nxMUU6A7fsIK3l91H:1ibTCURaZzcyr8FKZwh0u3'
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            const news = data.result.slice(0, 4)
-            const news_data = data.result.slice(4, 6);
-            this.newsData.set(news);
-            this.news_Editor.set(news_data);
+
+  this.state = new ReactiveDict(null, {
+    news: [],
+    refreshTokenNews: Random.id()
+  });
+  this.tags = [
+    { key: 'general', title: 'Genel' },
+    { key: 'sport', title: 'Spor' },
+    { key: 'economy', title: 'Ekonomi' },
+    { key: 'technology', title: 'Teknoloji' },
+  ],
 
 
-        })
-        .catch(error => {
-            console.error('Veri çekme hatası:', error);
-        });
+    console.log("onCreated");
+
+
 });
 
 
-Template.pagesNews.helpers({
-    newsData(start, end) {
-        return Template.instance().newsData.get().slice(start, end);
-    },
-    news_Editor() {
-        return Template.instance().news_Editor.get();
+
+Template.pagesNews.onRendered(function () {
+  const self = this;
+
+  console.log("onRendered");
+
+  this.autorun(function () {
+    self.state.get('refreshTokenNews')
+
+    console.log("autorun");
+
+    const obj = {
+      country: 'tr',
+      tag: 'general'
     }
+
+    Loading.dots();
+    Meteor.call('news.list', obj, function (error, result) {
+      Loading.remove();
+      if (error) {
+
+        return
+      }
+
+      console.log(result);
+      self.state.set('news', result.result)
+      console.log(self.state.get('news'))
+    });
+
+
+
+
+
+
+
+
+  });
+
+});
+
+
+
+Template.pagesNews.events({
+  'click #refreshNews': function (event, template) {
+    template.state.set('refreshTokenNews', Random.id());
+  },
+  'click a': function (event, template) {
+    const tag = event.currentTarget.id;
+    template.state.set('tag', tag);
+
+
+    const obj = {
+      country: 'tr',
+      tag: tag
+    };
+
+    Loading.circle();
+    Meteor.call('news.list', obj, function (error, result) {
+      Loading.remove();
+
+
+      template.state.set('news', result.result);
+    });
+  }
 });

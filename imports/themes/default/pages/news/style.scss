@@ -1,3 +1,5 @@
+@import '{}/client/configs/_variables.scss';
+
 .components-news {
     &-col {
         margin-bottom: 1rem;
@@ -198,7 +200,7 @@
                 font-size: 14px;
                 display: -webkit-box;
 
-                -webkit-line-clamp: 5;
+                -webkit-line-clamp: 4;
                 -webkit-box-orient: vertical;
                 overflow: hidden;
                 margin-top: 0.5rem;

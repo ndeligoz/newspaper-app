@@ -1,7 +1,9 @@
+@import '{}/client/configs/_variables.scss';
+
 .components-footer {
     width: 100%;
     height: 250px;
-    background-color: #0E1E32;
+    background-color: $secondary;
     margin-top: 2rem;
     display: flex;
 

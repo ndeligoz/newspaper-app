@@ -1,5 +1,5 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
+
+
 import './index.html'
 import './style.scss'
 
@@ -8,33 +8,48 @@ import './style.scss'
 
 
 Template.pagesDetail.onCreated(function () {
-    this.relatedTopics = new ReactiveVar([]);
 
-    fetch('https://api.collectapi.com/news/getNews?country=tr&tag=general', {
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'apikey 577q4nxMUU6A7fsIK3l91H:1ibTCURaZzcyr8FKZwh0u3'
+    this.state = new ReactiveDict(null, {
+        news: [],
+        refreshTokenNews: Random.id()
+    });
+
+    console.log("onCreated");
+
+});
+
+
+
+Template.pagesDetail.onRendered(function () {
+    const self = this;
+
+    console.log("onRendered");
+
+    this.autorun(function () {
+        self.state.get('refreshTokenNews')
+
+        console.log("autorun");
+
+        const obj = {
+            country: 'tr',
+            tag: 'general'
         }
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            const relatedTopics = data.result.slice(0, 5)
-
-            this.relatedTopics.set(relatedTopics);
 
 
+        Meteor.call('news.list', obj, function (error, result) {
 
-        })
-        .catch(error => {
-            console.error('Veri çekme hatası:', error);
+            if (error) {
+
+                return
+            }
+
+            console.log(result.result);
+            self.state.set('news', result.result)
+            console.log(self.state.get('news'))
         });
+
+
+    });
 });
 
 
-Template.pagesDetail.helpers({
-    relatedTopics() {
-        return Template.instance().relatedTopics.get().slice();
-    },
-
-});

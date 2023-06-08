@@ -1,7 +1,13 @@
 <template name="pagesNews">
 
 
+
+
+
     {{>pagesHome}}
+
+
+
     <div class="components-news">
         <div class="container">
 
@@ -10,16 +16,21 @@
                 <div class="col-8">
                     <div class="components-news-bar ">
                         <ul class="components-news-bar__ul">
-                            <li><a href="#">Latest Stories</a></li>
-                            <li><a href="#">Think</a></li>
-                            <li><a href="#">Healt</a></li>
+                            <li><a id="general" href="#">General</a></li>
+                            <li><a id="sport" href="#">Sports</a></li>
+                            <li><a id="economy" href="#">Economy</a></li>
+                            <li><a id="technology" href="#">Technology</a></li>
                         </ul>
 
-                        <i class="fa-thin fa-list"></i>
+                        <button id="refreshNews" class="btn-danger" style="width: 100px; height: 53px;">Yenile</button>
                     </div>
 
+
+
+
+
                     <div class="row ">
-                        {{#each newsData}}
+                        {{#each newsData  }}
                             <div class="col-6 components-news-col">
                                 <div class="components-news-card">
                                     <a href="{{pathFor 'pages.detail'}}">
@@ -38,13 +49,14 @@
                                     </div>
                                 </div>
                             </div>
-
                         {{/each}}
+
 
                     </div>
 
+
                     <div class="components-news-card__btn">
-                        <button class="btn btn-outline-danger">WIEW MORE</button>
+                        {{> componentPagination paginationState=pagination}}
                         <!-- buton özelleştir -->
                     </div>
 
@@ -85,11 +97,11 @@
         <!--  section editors-pick -->
         <div class="container">
             <div class="components-editor-title">
-                <p>Editor’s Picks <i class="fa-solid fa-star-sharp"></i></p>
+                <p>Editor’s Picks</p>
             </div>
             <div class="row">
 
-                {{#each news_Editor }}
+                {{#each newsData 6 8 }}
 
 
                     <div class="col-6">

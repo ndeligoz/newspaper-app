@@ -4,8 +4,7 @@
 @import'./pages/news/style.scss';
 @import './pages/detail/style.scss';
 
-$primary: #C31815;
-$secondary: #0E1E32;
+
 
 body {
 
@@ -33,7 +32,8 @@ body {
 
 }
 
-.container-pagesDetail {
+.container-sm {
+
     width: 100%;
     max-width: 1080px;
     padding-right: 15px;
@@ -164,7 +164,7 @@ body {
     color: #ffff;
 
     border-radius: 5px;
-    background-color: #C31815;
+    background-color: $primary;
     width: 120px;
     height: 60px;
     font-family: 'Poppins';

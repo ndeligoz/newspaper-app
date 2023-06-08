@@ -6,11 +6,27 @@
             <h1 class="pages-Detail-header__text">John Lewis, civil rights giant, crosses infamous Selma bridge one
                 final time
             </h1>
-            <img class="pages-Detail-header__img" src="/img/image 58.png" height="423px" width="1050px" />
+            <img class="pages-Detail-header__img" src="/img/image 58.png" />
         </div>
 
+        <!-- <div class="pages-Detail-sidebar">
+            <div class="pages-Detail-sidebar-top">
+                <p class="pages-Detail-sidebar-top__p">See more like this? </p>
+                <p class="pages-Detail-sidebar-top__circle"> |
+                </p>
+            </div>
+            <div class="pages-Detail-sidebar-bottom">
+                <p><i class="pages-Detail-sidebar-bottom__i fa-regular fa-heart"></i> </p>
+                <p><i class="pages-Detail-sidebar-bottom__i fa-regular fa-comment"></i> </p>
 
-        <div class="container-pagesDetail">
+                <p><i class="pages-Detail-sidebar-bottom__i fa-solid fa-arrow-up-right-from-square"></i> </p>
+                <p> <i class="pages-Detail-sidebar-bottom__i fa-regular fa-bookmark"></i></p>
+            </div>
+
+
+        </div> -->
+
+        <div class="container-sm">
             <div class="row">
                 <div class="col-9">
                     <!-- content -->
@@ -192,7 +208,7 @@
 
 
             <div class="relatedTopics-big-card">
-                {{#each relatedTopics}}
+                {{#each newsData 0 5}}
                     <div class="relatedTopics-big-card--wrapper">
                         <img class="relatedTopics-big-card--wrapper__image" src="{{image}} " />
                         <p class="relatedTopics-big-card--wrapper__text"> {{name}}

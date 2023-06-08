@@ -7,12 +7,7 @@ FlowRouter.route('/', {
     }
 });
 
-FlowRouter.route('/politics', {
-    name: 'pages.politics',
-    action(params, queryParams) {
-        this.render('LayoutDefault', { page: 'pagesPolitics' });
-    }
-});
+
 
 FlowRouter.route('/new-detail', {
     name: 'pages.detail',
