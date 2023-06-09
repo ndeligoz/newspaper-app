@@ -11,7 +11,7 @@ Template.pagesDetail.onCreated(function () {
 
     this.state = new ReactiveDict(null, {
         news: [],
-        refreshTokenNews: Random.id()
+
     });
 
     console.log("onCreated");
@@ -26,7 +26,7 @@ Template.pagesDetail.onRendered(function () {
     console.log("onRendered");
 
     this.autorun(function () {
-        self.state.get('refreshTokenNews')
+
 
         console.log("autorun");
 

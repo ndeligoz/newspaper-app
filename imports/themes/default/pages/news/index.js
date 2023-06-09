@@ -1,4 +1,5 @@
 
+
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import './index.html'
 import './style.scss'
@@ -9,43 +10,40 @@ Template.pagesNews.onCreated(function () {
 
   this.state = new ReactiveDict(null, {
     news: [],
-    refreshTokenNews: Random.id()
+    refreshTokenNews: Random.id(),
+    currentCategory: 'general',
+
   });
-  this.tags = [
-    { key: 'general', title: 'Genel' },
-    { key: 'sport', title: 'Spor' },
-    { key: 'economy', title: 'Ekonomi' },
-    { key: 'technology', title: 'Teknoloji' },
-  ],
 
-
-    console.log("onCreated");
 
 
 });
 
 
-
 Template.pagesNews.onRendered(function () {
   const self = this;
+
+
 
   console.log("onRendered");
 
   this.autorun(function () {
-    self.state.get('refreshTokenNews')
-
     console.log("autorun");
 
     const obj = {
-      country: 'tr',
-      tag: 'general'
+      language: 'tr',
+      category: self.state.get('currentCategory'),
+
     }
+
+    self.state.get('refreshTokenNews', Random.id());
+    console.log(self.state.get('refreshTokenNews', Random.id()));
 
     Loading.dots();
     Meteor.call('news.list', obj, function (error, result) {
       Loading.remove();
       if (error) {
-
+        console.log('error', error);
         return
       }
 
@@ -56,37 +54,40 @@ Template.pagesNews.onRendered(function () {
 
 
 
-
-
-
-
-
   });
 
-});
 
+})
 
 
 Template.pagesNews.events({
   'click #refreshNews': function (event, template) {
     template.state.set('refreshTokenNews', Random.id());
   },
-  'click a': function (event, template) {
-    const tag = event.currentTarget.id;
-    template.state.set('tag', tag);
+
+  'click .news-category-button': function (event, template) {
+    event.preventDefault();
+    const category = event.target.id;
 
 
-    const obj = {
-      country: 'tr',
-      tag: tag
+
+    const _obj = {
+      language: 'tr',
+      category: category,
+
     };
 
     Loading.circle();
-    Meteor.call('news.list', obj, function (error, result) {
+    Meteor.call('news.list', _obj, function (error, result) {
       Loading.remove();
 
 
       template.state.set('news', result.result);
+
+      template.state.set('currentCategory', category);
     });
   }
 });
+
+
+
