@@ -1,0 +1,40 @@
+.components-editor {
+
+    &-title {
+        font-weight: 700;
+    }
+
+    &-card {
+        display: flex;
+        margin-top: 2rem;
+
+        &-body {
+            padding-left: 0.5rem;
+
+            &__title {
+                font-size: 16px;
+                font-weight: 700;
+            }
+
+            &__text {
+                font-weight: 400;
+                font-size: 14px;
+                display: -webkit-box;
+
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                margin-top: 0.5rem;
+            }
+        }
+    }
+
+    &-image {
+        object-fit: cover;
+        width: 272px;
+        height: 172px;
+        object-position: top;
+        flex-shrink: 0;
+
+    }
+}

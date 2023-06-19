@@ -1,0 +1,26 @@
+<template name="componentEditorPicks">
+
+
+    <div class="components-editor">
+        <!--  section editors-pick -->
+        <div class="container">
+            <div class="components-editor-title">
+                <p>Editor’s Picks</p>
+            </div>
+            <div class="row">
+                {{#each getEditorPicks 4 6}}
+                    <div class="col-6">
+                        <div class="components-editor-card">
+                            <img class="components-editor-image" src="{{image}} " alt="">
+                            <div class="components-editor-card-body">
+                                <h5 class="components-editor-card-body__title">{{name}} </h5>
+                                <p class="components-editor-card-body__text">{{description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+
+    </div>
+</template>
