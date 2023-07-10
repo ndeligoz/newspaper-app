@@ -23,8 +23,6 @@ Template.componentEditorPicks.onRendered(function () {
       }
 
       self.state.set("editorPicks", result.result);
-
-      console.log(result.result);
     });
   });
 });

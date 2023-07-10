@@ -1,99 +1,118 @@
 <template name="pagesNews">
-
-
-
-
-
   {{>pagesHome}}
-
-
 
   <div class="components-news">
     <div class="container">
-
-      <div class=" row ">
-
+      <div class="row">
         <div class="col-8">
-          <div class="components-news-bar ">
+          <div class="components-news-bar">
             <ul class="components-news-bar__ul">
-              <li><a class="news-category-button {{#if eq (state.get 'currentCategory') 'general'}} active {{/if}}"
-                  id="general" href="#">General</a>
+              {{#let _currentCategory = (state.get 'currentCategory')}}
+
+              <li>
+                <a
+                  class="news-category-button {{#if eq _currentCategory 'general'}} active {{/if}}"
+                  id="general"
+                  href="#"
+                  >General</a
+                >
               </li>
-              <li><a class="news-category-button {{#if eq (state.get 'currentCategory') 'sport'}} active {{/if}}"
-                  id="sport" href="#">Sports</a>
+              <li>
+                <a
+                  class="news-category-button {{#if eq _currentCategory 'sport'}} active {{/if}}"
+                  id="sport"
+                  href="#"
+                  >Sports</a
+                >
               </li>
-              <li><a class="news-category-button {{#if eq (state.get 'currentCategory') 'economy'}} active {{/if}}"
-                  id="economy" href="#">Economy</a>
+              <li>
+                <a
+                  class="news-category-button {{#if eq _currentCategory 'economy'}} active {{/if}}"
+                  id="economy"
+                  href="#"
+                  >Economy</a
+                >
               </li>
-              <li><a class="news-category-button {{#if eq (state.get 'currentCategory') 'technology'}} active {{/if}}"
-                  id="technology" href="#">Technology</a></li>
+              <li>
+                <a
+                  class="news-category-button {{#if eq _currentCategory 'technology'}} active {{/if}}"
+                  id="technology"
+                  href="#"
+                  >Technology</a
+                >
+              </li>
+              {{/let}}
             </ul>
 
-
-            <button id="refreshNews" class="btn-danger" style="width: 100px; height: 53px;">Yenile</button>
+            <button
+              id="refreshNews"
+              class="btn-danger"
+              style="width: 100px; height: 53px"
+            >
+              Yenile
+            </button>
           </div>
 
-          <div class="row ">
+          <div class="row">
             {{#each newsData}}
-              <div class="col-6 components-news-col">
-                <div class="components-news-card">
-                  <a href="{{pathFor 'pages.detail'}}">
-                    <img src="{{image}}" class="components-news-card__img">
-                  </a>
-                  <div class="components-news-card-body">
-                    <a class="components-news-card__title" href="{{url}}">{{name}}</a>
-                    <p class="components-news-card__text">{{description}}</p>
-
-
-                  </div>
-                  <div class="components-news-card-footer">
-                    <i class=" fa-regular fa-heart"></i>
-                    <i class=" fa-solid fa-arrow-up-from-bracket"></i>
-                    <i class=" fa-regular fa-bookmark"></i>
-                  </div>
+            <div class="col-6 components-news-col">
+              <div class="components-news-card">
+                <a href="{{pathFor 'pages.detail'}}">
+                  <img src="{{image}}" class="components-news-card__img" />
+                </a>
+                <div class="components-news-card-body">
+                  <a class="components-news-card__title" href="{{url}}"
+                    >{{name}}</a
+                  >
+                  <p class="components-news-card__text">{{description}}</p>
+                </div>
+                <div class="components-news-card-footer">
+                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                  <i class="fa-regular fa-bookmark"></i>
                 </div>
               </div>
+            </div>
             {{/each}}
-
-
           </div>
 
           <div class="components-news-card__btn">
-
             {{> componentPagination paginationState=pagination}}
 
             <!-- buton özelleştir -->
           </div>
-
         </div>
-        <div class=" col-4 components-news_col">
+
+        <div class="col-4 components-news_col">
           <div class="components-news-live">
             <div class="components-news-live__icon">
               <p>Live <i class="fa-solid fa-record-vinyl"></i></p>
             </div>
 
-            <img class="components-news-live__img" src="img/image 48.png">
+            <img class="components-news-live__img" src="img/image 48.png" />
             <h5 class="components-news-live_title">
-              Beloved Arizona coach loses battle
-              with
-              coronavirus</h5>
+              Beloved Arizona coach loses battle with coronavirus
+            </h5>
 
             <div class="components-news-live_title_location">
               <h2>Location News</h2>
             </div>
             <div class="components-news-live-card">
               <p>Get Location specific News</p>
-              <input class="components-news-live-card__input" type="text" placeholder="Enter Your Location">
-              <button class="components-news-live-card__btn btn-danger">SUBMIT</button>
+              <input
+                class="components-news-live-card__input"
+                type="text"
+                placeholder="Enter Your Location"
+              />
+              <button class="components-news-live-card__btn btn-danger">
+                SUBMIT
+              </button>
             </div>
           </div>
         </div>
-
       </div>
-
     </div>
   </div>
 
   {{>componentEditorPicks}}
-
 </template>

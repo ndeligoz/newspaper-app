@@ -1,3 +1,4 @@
+import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 Template.componentPagination.onCreated(function () {
   this.state = new ReactiveDict(null, {
     pages: [],
@@ -7,7 +8,8 @@ Template.componentPagination.onCreated(function () {
 
 Template.componentPagination.onRendered(function () {
   const self = this;
-
+  const currentPage = parseInt(FlowRouter.getQueryParam("page")) || 1;
+  self.data.paginationState.set("currentPage", currentPage);
   this.autorun(function () {
     const totalCount = self.data.paginationState.get("totalDataAmount");
     const itemAmount = self.data.paginationState.get("itemAmount");
@@ -34,6 +36,10 @@ Template.componentPagination.events({
     }
 
     template.data.paginationState.set("currentPage", currentPage);
+    FlowRouter.setQueryParams({
+      category: FlowRouter.getQueryParam("category"),
+      page: currentPage,
+    });
   },
 
   "click .brd-next": function (event, template) {
@@ -46,11 +52,18 @@ Template.componentPagination.events({
     }
 
     template.data.paginationState.set("currentPage", currentPage);
+    FlowRouter.setQueryParams({
+      category: FlowRouter.getQueryParam("category"),
+      page: currentPage,
+    });
   },
 
   "click .brd-page": function (event, template) {
     event.preventDefault();
     template.data.paginationState.set("currentPage", this.value);
+    FlowRouter.setQueryParams({
+      category: FlowRouter.getQueryParam("category"),
+      page: this.value,
+    });
   },
-
 });
